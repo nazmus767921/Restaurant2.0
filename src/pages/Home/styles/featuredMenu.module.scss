@@ -64,9 +64,16 @@
   }
 
   &__menuStack {
-    display: flex;
-    flex-direction: row;
-    gap: var(--gap-3);
+    position: relative;
+    &__cards {
+      display: flex;
+      flex-direction: row;
+      gap: var(--gap-3);
+      width: max-content;
+      padding-block-start: var(--gap-3);
+      padding-block-end: var(--gap-7);
+      padding-inline: var(--p-container);
+    }
 
     &::before {
       -webkit-backdrop-filter: blur(0.94rem);
@@ -75,10 +82,11 @@
       border-bottom-right-radius: 0.63rem;
       z-index: -1;
 
-      width: 50%;
+      width: 100%;
       height: 12rem;
       position: absolute;
       left: 0;
+      top: 0;
       content: "";
     }
   }
@@ -97,6 +105,12 @@
     &__titleRowCard {
       padding-block: 7.5rem;
       padding-inline: 11.25rem;
+    }
+
+    &__menuStack {
+      &::before {
+        width: 60%;
+      }
     }
 
     &__title {

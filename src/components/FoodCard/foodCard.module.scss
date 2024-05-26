@@ -28,6 +28,9 @@
 
     & img {
       object-fit: contain;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
     }
   }
 

@@ -111,6 +111,7 @@ $device-desktop-xl: 1920px;
   --gap-5: 60px;
   --gap-6: 120px;
   --gap-7: 180px;
+  --p-container: clamp(1.25rem, 15.24vi + -2.46rem, 11.25rem);
 }
 
 // @media (-webkit-device-pixel-ratio: 1.25) {
@@ -282,7 +283,7 @@ svg {
 .container {
   // --360px(min),1920px(max)
   width: clamp(22.5rem, 100vi + 0rem, 120rem);
-  padding-inline: clamp(1.25rem, 15.24vi + -2.46rem, 11.25rem);
+  padding-inline: var(--p-container);
   margin-inline: auto;
 }
 

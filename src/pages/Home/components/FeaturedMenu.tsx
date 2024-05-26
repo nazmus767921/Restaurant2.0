@@ -1,4 +1,5 @@
 import Button from "@components/Button/Button";
+import DragSliderWrapper from "@components/DragSliderWrapper/DragSliderWrapper";
 import FoodCard, { FoodCardProps } from "@components/FoodCard/FoodCard";
 import { nanoid } from "@reduxjs/toolkit";
 import { utilizeModuleClasses } from "easy-css-modules";
@@ -76,19 +77,23 @@ const TitleRow = () => {
 
 const MenuStack = () => {
   return (
-    <div className={$_("featuredMenu__menuStack @container")}>
-      {foodData.map((food) => {
-        const { image, name, description, price } = food;
-        return (
-          <FoodCard
-            image={image}
-            name={name}
-            description={description}
-            price={price}
-            isBlur
-          />
-        );
-      })}
+    <div className={$_("featuredMenu__menuStack")}>
+      <DragSliderWrapper>
+        <div className={$_("featuredMenu__menuStack__cards")}>
+          {foodData.map((food) => {
+            const { image, name, description, price } = food;
+            return (
+              <FoodCard
+                image={image}
+                name={name}
+                description={description}
+                price={price}
+                isBlur
+              />
+            );
+          })}
+        </div>
+      </DragSliderWrapper>
     </div>
   );
 };
