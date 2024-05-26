@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useRef } from "react";
 
-const DragSliderWrapper = ({
-  children,
-  style = {},
-}: {
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-}) => {
+const DragSliderWrapper = ({ children }: { children: React.ReactNode }) => {
   const constraintsRef = useRef(null);
 
   return (
