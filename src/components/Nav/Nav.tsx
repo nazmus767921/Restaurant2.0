@@ -3,7 +3,6 @@ import { routes } from "@pages/routes";
 import { nanoid } from "@reduxjs/toolkit";
 import { utilizeModuleClasses } from "easy-css-modules";
 import { ReactElement, memo } from "react";
-import { WiDaySunny } from "react-icons/wi";
 import { NavLink, useMatch } from "react-router-dom";
 import styles from "./nav.module.scss";
 
@@ -80,16 +79,16 @@ const MenuBtn = ({
   );
 };
 
-const DarkModeToggle = () => {
-  return (
-    <button
-      type="button"
-      name="darkModeToggle"
-      className={$_("navbar__darkModeToggle")}
-    >
-      <WiDaySunny />
-    </button>
-  );
-};
+// const DarkModeToggle = () => {
+//   return (
+//     <button
+//       type="button"
+//       name="darkModeToggle"
+//       className={$_("navbar__darkModeToggle")}
+//     >
+//       <WiDaySunny />
+//     </button>
+//   );
+// };
 
 export default Nav;
