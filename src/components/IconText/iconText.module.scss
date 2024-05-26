@@ -1,0 +1,17 @@
+.iconText {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.31rem, 0.33vi + 0.23rem, 0.63rem);
+
+  color: var(--accent);
+  opacity: 0.8;
+  font-size: var(--fs-md);
+
+  .icon {
+    aspect-ratio: 1;
+    width: 1.25em;
+  }
+  .text {
+    font-size: inherit;
+  }
+}

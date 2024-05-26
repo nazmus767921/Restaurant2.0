@@ -1,0 +1,77 @@
+.foodMenuSection {
+  display: grid;
+  gap: var(--gap-3);
+  /* Background */
+  background-image: linear-gradient(
+      180deg,
+      rgba(4, 4, 10, 0) 21.609%,
+      rgb(4, 4, 10) 99.16%
+    ),
+    linear-gradient(180deg, rgba(4, 4, 10, 0) 21.609%, rgb(4, 4, 10) 99.16%),
+    url("/src/assets/images/bg3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  grid-template-columns: minmax(auto, 22rem) 1fr;
+  padding-block: var(--gap-7);
+  padding-block-start: var(--gap-5);
+
+  /* Children */
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3);
+
+    menu {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-2);
+      align-items: flex-start;
+      padding-inline: var(--gap-1);
+    }
+
+    &__button {
+      font-family: var(--ff-heading);
+      font-size: var(--fs-h5);
+      opacity: 0.6;
+
+      &.isSelected {
+        font-size: calc(var(--fs-h5) + 0.75rem);
+        color: var(--brand);
+        opacity: 1;
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+
+  .foodMenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+
+    &__foodCards {
+      display: grid;
+      gap: var(--gap-3);
+      grid-template-columns: repeat(auto-fit, minmax(12.75rem, 1fr));
+    }
+
+    &__viewSorter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: -moz-fit-content;
+      height: fit-content;
+    }
+    &__pageStatusText {
+      opacity: 0.6;
+      color: var(--accent);
+    }
+  }
+}

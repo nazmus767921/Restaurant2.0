@@ -1,0 +1,67 @@
+.reservationCta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("/src/assets/images/cta-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__btnWrapper {
+    margin-block-start: var(--gap-3);
+  }
+
+  &__btn {
+    --_color: var(--brand);
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+
+    font-size: var(--fs-h6);
+    font-family: var(--ff-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-block: var(--gap-2);
+    padding-inline: var(--gap-1);
+    border-block: 1px solid var(--_color);
+    color: var(--_color);
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.textItems {
+  --_titleSize: calc(var(--fs-h1) + clamp(0.06rem, 2.03vi + -0.43rem, 2rem));
+  --_titleLH: clamp(2.81rem, 3.33vi + 2rem, 6rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-1);
+  justify-content: inherit;
+  align-items: inherit;
+  text-align: center;
+  &__tag {
+    font-size: var(--fs-tag);
+    color: var(--brand);
+    letter-spacing: 0.1em;
+  }
+  &__title {
+    font-size: var(--_titleSize);
+    line-height: var(--_titleLH);
+    text-transform: capitalize;
+    text-align: center;
+  }
+  &__description {
+    margin-inline: auto;
+    text-align: center;
+    width: min(100%, 50ch);
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+  }
+}

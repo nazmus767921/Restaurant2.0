@@ -1,0 +1,25 @@
+@import "../../styles/breakpoints";
+
+.banner {
+  --_columns: 1;
+  --_columnSize: auto;
+  display: grid;
+  grid-template-columns: repeat(var(--_columns), var(--_columnSize));
+  padding-block: var(--gap-2);
+  gap: var(--gap-2);
+  place-items: center;
+  place-content: center;
+}
+
+@include md {
+  .banner {
+    --_columns: 2;
+  }
+}
+
+@include lg {
+  .banner {
+    --_columns: 3;
+    gap: var(--gap-4);
+  }
+}

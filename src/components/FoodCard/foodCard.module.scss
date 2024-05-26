@@ -1,0 +1,61 @@
+.foodCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  width: 100%;
+  max-width: 14.75rem;
+  /* Auto layout */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  text-align: center;
+
+  /* Inside Auto Layout */
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+
+  // appearance
+  border-radius: 0.63rem;
+  background: url(notebook-dark), rgba(11, 11, 13, 1);
+
+  &__imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+
+    & img {
+      object-fit: contain;
+    }
+  }
+
+  &.isBlur {
+    -webkit-backdrop-filter: blur(0.54rem);
+    backdrop-filter: blur(0.54rem);
+    background: url(notebook-dark), rgba(11, 11, 13, 0.4);
+  }
+
+  box-shadow: rgba(67, 65, 36, 0.2) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.foodMenuText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-1);
+
+  &__title,
+  &__price,
+  &__price__symbol {
+    color: var(--brand);
+  }
+  &__price__symbol {
+    margin-inline-end: var(--gap-1);
+  }
+
+  & p {
+    opacity: 0.6;
+  }
+}

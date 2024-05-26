@@ -1,0 +1,93 @@
+@import "../../../styles/breakpoints";
+
+.hero {
+  width: 100%;
+  background-image: linear-gradient(
+      180deg,
+      rgb(4, 4, 10),
+      rgba(4, 4, 10, 0) 37.18%
+    ),
+    linear-gradient(180deg, rgba(4, 4, 10, 0) 69.869%, rgb(4, 4, 10) 94.047%),
+    url("../../../assets/images/heroimage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  min-height: calc(100svh + var(--position-of-titleRowCard));
+
+  display: grid;
+  place-items: center;
+  place-content: center;
+  gap: 2rem;
+  position: relative;
+
+  &__text,
+  &__title {
+    text-align: center;
+  }
+
+  &__text {
+    opacity: 0.9;
+    color: var(--accent);
+  }
+
+  &__title {
+    --_positionY: clamp(3rem, 1.05vi + 2.75rem, 4rem);
+    --_fs: clamp(5.63rem, 2.61vi + 4.99rem, 8.13rem);
+
+    font-size: var(--_fs);
+    color: var(--accent);
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: calc(
+      -1 * var(--_positionY) - 2rem
+    ); // resets the space occupied by relative position of spanned text
+    &--span {
+      position: relative;
+      bottom: var(--_positionY);
+    }
+  }
+
+  &__bottomArea {
+    --_columns: 1;
+    --_columnSize: minmax(calc(100% / var(--_columns)), 1fr);
+    --_gap: var(--gap-2);
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--_columns), var(--_columnSize));
+    place-items: center;
+    gap: var(--_gap);
+
+    position: absolute;
+    bottom: 2rem;
+    padding-block-end: var(--position-of-titleRowCard);
+    &__socialIconsWrapper {
+      grid-row: 1 / 2;
+    }
+
+    &__important-for-layout {
+      display: none;
+    }
+  }
+}
+
+@include md {
+  .hero {
+    &__bottomArea {
+      --_columns: 3;
+      --_columnSize: minmax(calc(100% / var(--_columns)), 1fr);
+      --_gap: 0;
+
+      &__socialIconsWrapper {
+        grid-row: unset;
+        justify-self: end;
+      }
+
+      &__important-for-layout {
+        display: block;
+      }
+    }
+  }
+}

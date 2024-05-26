@@ -1,0 +1,21 @@
+.button {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+
+  text-transform: capitalize;
+  font-size: var(--fs-h6);
+  font-family: var(--ff-heading);
+
+  padding-block: 0.625rem;
+  padding-inline: 1.25rem;
+
+  background: var(--brand);
+  border-radius: var(--rounded-sm);
+  color: var(--background);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

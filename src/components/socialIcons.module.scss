@@ -1,0 +1,17 @@
+.socialIcons {
+  display: flex;
+  gap: var(--gap-2);
+  color: var(--accent);
+
+  &__icon {
+    --_size: 2rem;
+    width: var(--_size);
+    height: var(--_size);
+    aspect-ratio: 1;
+    opacity: 0.7;
+
+    &:hover {
+      color: var(--brand);
+    }
+  }
+}

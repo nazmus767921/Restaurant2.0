@@ -1,0 +1,113 @@
+@import "../../../styles/breakpoints";
+
+.featuredMenu {
+  display: flex;
+  flex-direction: column;
+  padding-block-end: var(--gap-5);
+
+  &__BtnWrapper {
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    justify-self: flex-end;
+  }
+
+  &__titleRow {
+    display: flex;
+  }
+  &__titleRowCardWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  &__titleRowCard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-block: var(--gap-5);
+    padding-inline: var(--gap-4);
+
+    margin-block-start: calc(-1 * var(--position-of-titleRowCard) + 2rem);
+
+    -webkit-backdrop-filter: blur(0.94rem);
+    backdrop-filter: blur(0.94rem);
+    border-top-left-radius: 0.63rem;
+    border-top-right-radius: 0.63rem;
+    background: url(notebook-dark), rgba(23, 23, 23, 0.7);
+  }
+  &__title {
+    --_quote-spacing: var(--gap-2);
+    --_quote-size: 2rem;
+
+    text-align: center;
+    text-transform: capitalize;
+
+    &::after {
+      width: var(--_quote-size);
+      aspect-ratio: 1;
+
+      content: '"';
+      color: var(--brand);
+      margin-inline-start: var(--_quote-spacing);
+    }
+    &::before {
+      width: var(--_quote-size);
+      aspect-ratio: 1;
+
+      content: '"';
+      color: var(--brand);
+      margin-inline-end: var(--_quote-spacing);
+    }
+  }
+
+  &__menuStack {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-3);
+
+    &::before {
+      -webkit-backdrop-filter: blur(0.94rem);
+      backdrop-filter: blur(0.94rem);
+      background: url(notebook-dark), rgba(23, 23, 23, 0.7);
+      border-bottom-right-radius: 0.63rem;
+      z-index: -1;
+
+      width: 50%;
+      height: 12rem;
+      position: absolute;
+      left: 0;
+      content: "";
+    }
+  }
+}
+
+@include lg {
+  .featuredMenu {
+    &__titleRowCardWrapper {
+      width: 60%;
+    }
+
+    &__titleRow {
+      min-height: 20rem;
+    }
+
+    &__titleRowCard {
+      padding-block: 7.5rem;
+      padding-inline: 11.25rem;
+    }
+
+    &__title {
+      &::before {
+        margin-inline-start: calc(
+          var(--_quote-spacing) * -1 - var(--_quote-size)
+        );
+      }
+    }
+    &__BtnWrapper {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,297 @@
+@import "breakpoints";
+@import "grid";
+// ||Fonts
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+  font-family: "NewForest";
+  src: local("NewForest"), local("NewForest-Regular"),
+    url("fonts/NewForest.woff2");
+  font-weight: normal;
+}
+
+// || Breakpoints
+$device-mobile: 390px;
+$device-mobile-lg: 560px;
+$device-tablet: 768px;
+$device-tablet-lg: 991px;
+$device-desktop-sm: 1024px;
+$device-desktop-md: 1280px;
+$device-desktop-lg: 1440px;
+$device-desktop-xl: 1920px;
+
+/* Fluid font size variables, for browsers that support clamp */
+// -- on 390px the base font size is 16px and scale ratio is 1.2 (Minor Third) and
+// -- on 1920px the base font size is 18px and scale ration is 1.333 (Perfect Forth)
+
+/* Fluid font size variables, for browsers that support clamp */
+/* For browsers that support clamp  */
+/* For browsers that support clamp  */
+@supports (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --fs-tag: clamp(1rem, 0.13vi + 0.97rem, 1.13rem);
+    --fs-xs: clamp(0.69rem, -0.14vi + 0.73rem, 0.56rem);
+    --fs-sm: clamp(0.83rem, -0.09vi + 0.85rem, 0.75rem);
+    --fs-base: clamp(1rem, 0vi + 1rem, 1rem);
+    --fs-h6: clamp(1.2rem, 0.14vi + 1.17rem, 1.33rem);
+    --fs-h5: clamp(1.44rem, 0.35vi + 1.35rem, 1.78rem);
+    --fs-h4: clamp(1.73rem, 0.67vi + 1.56rem, 2.37rem);
+    --fs-h3: clamp(2.07rem, 1.13vi + 1.8rem, 3.16rem);
+    --fs-h2: clamp(2.49rem, 1.8vi + 2.05rem, 4.21rem);
+    --fs-h1: clamp(2.99rem, 2.74vi + 2.32rem, 5.61rem);
+  }
+}
+/* For browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --fs-xs: 0.69rem;
+    --fs-sm: 0.83rem;
+    --fs-base: 1rem;
+    --fs-h6: 1.2rem;
+    --fs-h5: 1.44rem;
+    --fs-h4: 1.73rem;
+    --fs-h3: 2.07rem;
+    --fs-h2: 2.49rem;
+    --fs-h1: 2.99rem;
+  }
+  @media screen and (min-width: 1920px) {
+    :root {
+      --fs-xs: 0.56rem;
+      --fs-sm: 0.75rem;
+      --fs-base: 1rem;
+      --fs-h6: 1.33rem;
+      --fs-h5: 1.78rem;
+      --fs-h4: 2.37rem;
+      --fs-h3: 3.16rem;
+      --fs-h2: 4.21rem;
+      --fs-h1: 5.61rem;
+    }
+  }
+}
+
+:root {
+  // || TypoGraphy
+  --font-fallback-stack: Georgia, -apple-system, BlinkMacSystemFont, serif;
+  --ff-base: "Lora", var(--font-fallback-stack);
+  --ff-secondary: "Libre Franklin", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --ff-heading: "NewForest", var(--font-fallback-stack);
+
+  // || Colors
+  --brand: #fca503;
+  --text: #fbfbfe;
+  --accent: #e4c286;
+  --secondary: #e9781c;
+  --background: #04040a;
+  --background-900: #121212;
+
+  // || Border radius
+  --rounded-sx: 2px;
+  --rounded-sm: 5px;
+  --rounded-md: 8px;
+  --rounded-lg: 10px;
+  --rounded-xl: 20px;
+  --rounded-full: 9999px;
+
+  // || Animation Easing
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  // || Line Heights
+  --lh-base: 1.1;
+  --lh-p: 1.5;
+  --lh-p-sm: 1.33;
+
+  // || Paddings and Margins
+  --gap-xs: 2px;
+  --gap-sm: 4px;
+  --gap-1: 10px;
+  --gap-2: 15px;
+  --gap-3: 20px;
+  --gap-4: 30px;
+  --gap-5: 60px;
+  --gap-6: 120px;
+  --gap-7: 180px;
+}
+
+// @media (-webkit-device-pixel-ratio: 1.25) {
+//   :root {
+//     --fs-xs: clamp(0.56rem, 0vi + 0.56rem, 0.56rem);
+//     --fs-sm: clamp(0.75rem, 0vi + 0.75rem, 0.75rem);
+//     --fs-base: clamp(1rem, 0vi + 1rem, 1rem);
+//     --fs-h6: clamp(1.33rem, 0vi + 1.33rem, 1.33rem);
+//     --fs-h5: clamp(1.78rem, 0vi + 1.78rem, 1.78rem);
+//     --fs-h4: clamp(2.37rem, 0vi + 2.37rem, 2.37rem);
+//     --fs-h3: clamp(3.16rem, 0vi + 3.16rem, 3.16rem);
+//     --fs-h2: clamp(4.21rem, 0vi + 4.21rem, 4.21rem);
+//     --fs-h1: clamp(5.61rem, 0vi + 5.61rem, 5.61rem);
+//   }
+// }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent; /* to remove the tap highlights on touch screens */
+  transition: all 350ms var(--ease-out-expo);
+}
+
+html {
+  // font-size: var(--fs-base);
+  font-family: var(--ff-base);
+
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--text);
+  background-color: var(--background);
+  overflow-x: hidden; // --fixes for horizontal scrolling
+}
+
+// --custom scrollbar-----------------
+body::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  outline: none;
+}
+// --custom scrollbar------------------
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-heading);
+  font-weight: normal;
+  color: inherit;
+  line-height: var(--lh-base);
+}
+
+/* --------------------------------------- */
+
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+h4 {
+  font-size: var(--fs-h4);
+}
+h5 {
+  font-size: var(--fs-h5);
+}
+h6 {
+  font-size: var(--fs-h6);
+}
+
+p {
+  letter-spacing: 0.5px;
+  line-height: var(--lh-p);
+}
+
+p.is--small {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-p-sm);
+}
+
+/* --------------------------------------- */
+
+a,
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
+  text-decoration: none;
+}
+input,
+select,
+textarea {
+  &::placeholder {
+    opacity: 0.6;
+  }
+}
+
+a,
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+li {
+  list-style: none;
+}
+
+img,
+svg,
+picture,
+video {
+  width: 100vw;
+  height: 100%;
+  max-width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+svg,
+svg g {
+  fill: currentColor;
+}
+svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img__wrapper {
+  // Must be used as an image parent div to get the pefect responsiveness in images.
+  display: flex;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+// || Utility classes
+.container {
+  // --360px(min),1920px(max)
+  width: clamp(22.5rem, 100vi + 0rem, 120rem);
+  padding-inline: clamp(1.25rem, 15.24vi + -2.46rem, 11.25rem);
+  margin-inline: auto;
+}
+
+.isBrand {
+  color: var(--brand);
+}
+
+.centerX {
+  margin-inline: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+}

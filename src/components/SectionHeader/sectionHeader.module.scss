@@ -1,0 +1,15 @@
+.sectionHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap-3);
+
+  &__subHeading {
+    color: var(--accent);
+    opacity: 0.6;
+    max-width: 68ch;
+    text-align: center;
+  }
+}

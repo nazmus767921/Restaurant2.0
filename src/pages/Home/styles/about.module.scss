@@ -1,0 +1,87 @@
+@import "../../../styles/breakpoints";
+
+.about {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  padding: var(--gap-4);
+
+  &::after {
+    content: "";
+    background-image: url("/src/assets/images/divider.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 22.75rem;
+    height: 3.45rem;
+
+    position: absolute;
+    right: 0;
+    bottom: -5rem;
+  }
+
+  &__textContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3);
+    flex-grow: 1;
+    flex-basis: 50%;
+  }
+
+  /*------- Restaurant Images -------*/
+  &__restaurantImages {
+    display: grid;
+
+    align-content: start;
+    width: 50vw;
+    margin-inline: calc(-25vw + 25%);
+    grid-template-areas: imagesStack;
+    width: 40rem;
+    height: 40rem;
+
+    .topImage {
+      --_sizeX: 30rem;
+      --_sizeY: 30rem;
+      width: var(--_sizeX);
+      height: var(--_sizeY);
+    }
+    .bottomImage {
+      --_sizeX: 19rem;
+      --_sizeY: 32rem;
+      width: var(--_sizeX);
+      height: var(--_sizeY);
+    }
+
+    .topImage,
+    .bottomImage {
+      position: relative;
+      border-radius: 1.56rem;
+    }
+
+    .topImage {
+      grid-area: imagesStack;
+      z-index: 0;
+    }
+    .bottomImage {
+      grid-area: imagesStack;
+      z-index: 1;
+      top: 15%;
+      left: -40%;
+    }
+  }
+}
+
+@include lg {
+  .about {
+    flex-direction: row;
+    gap: var(--gap-6);
+
+    &::after {
+      width: 28.75rem;
+      height: 3.45rem;
+      bottom: 10rem;
+    }
+  }
+}

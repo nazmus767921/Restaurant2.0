@@ -1,0 +1,9 @@
+label {
+  &.isRequired {
+    &::after {
+      content: "*";
+      font-size: 75%;
+      margin-inline-start: 0.125rem;
+    }
+  }
+}

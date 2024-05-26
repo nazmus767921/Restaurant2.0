@@ -1,0 +1,38 @@
+.addressCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--gap-3);
+  border: 1.65px solid var(--accent);
+  border-radius: var(--rounded-lg);
+  max-width: 22rem;
+
+  height: max-content;
+  height: fit-content;
+
+  &__textContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--gap-2);
+    text-align: center;
+
+    &__title {
+      margin-block-end: var(--gap-2);
+      color: var(--accent);
+      text-transform: capitalize;
+    }
+
+    & p {
+      opacity: 0.7;
+    }
+  }
+
+  &__textContent + &__textContent {
+    margin-block-start: var(--gap-4);
+    padding-block-start: var(--gap-4);
+    border-top: 1.5px solid var(--accent);
+  }
+}
