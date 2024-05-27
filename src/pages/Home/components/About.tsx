@@ -32,16 +32,35 @@ const About = () => {
   );
 };
 
+// const RestaurantImages = () => {
+//   return (
+  
+//       <div className={$_("about__restaurantImages")}>
+//         <div className={$_("topImage @img__wrapper")}>
+//           <img src="/images/restaurant2.png" alt="Restaurant view" />
+//         </div>
+//         <div className={$_("bottomImage @img__wrapper")}>
+//           <img src="/images/restaurant1.png" alt="Restaurant view" />
+//         </div>
+//       </div>
+
+//   );
+// };
+
+
+
 const RestaurantImages = () => {
   return (
-    <div className={$_("about__restaurantImages")}>
-      <div className={$_("topImage @img__wrapper")}>
-        <img src="/images/restaurant2.png" alt="Restaurant view" />
+  
+      <div className={$_("about__restaurantImages")}>
+        <div className={$_("topImage @img__wrapper")}>
+          <img src="/images/restaurant2.png" alt="Restaurant view" />
+        </div>
+        <div className={$_("bottomImage @img__wrapper")}>
+          <img src="/images/restaurant1.png" alt="Restaurant view" />
+        </div>
       </div>
-      <div className={$_("bottomImage @img__wrapper")}>
-        <img src="/images/restaurant1.png" alt="Restaurant view" />
-      </div>
-    </div>
+
   );
 };
 

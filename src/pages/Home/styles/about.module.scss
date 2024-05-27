@@ -1,12 +1,14 @@
 @import "../../../styles/breakpoints";
 
 .about {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
   min-height: -moz-fit-content;
   min-height: fit-content;
   padding: var(--gap-4);
+  padding-block-end: var(--gap-6);
 
   &::after {
     content: "";
@@ -19,7 +21,7 @@
 
     position: absolute;
     right: 0;
-    bottom: -5rem;
+    bottom: 0;
   }
 
   &__textContent {
@@ -27,48 +29,61 @@
     flex-direction: column;
     gap: var(--gap-3);
     flex-grow: 1;
-    flex-basis: 50%;
   }
 
-  /*------- Restaurant Images -------*/
   &__restaurantImages {
-    display: grid;
+    --_base-image-size: 100vw;
+    --_margin: 5rem;
+    --_image-reposition: 6rem;
 
-    align-content: start;
-    width: 50vw;
-    margin-inline: calc(-25vw + 25%);
-    grid-template-areas: imagesStack;
-    width: 40rem;
-    height: 40rem;
-
-    .topImage {
-      --_sizeX: 30rem;
-      --_sizeY: 30rem;
-      width: var(--_sizeX);
-      height: var(--_sizeY);
-    }
-    .bottomImage {
-      --_sizeX: 19rem;
-      --_sizeY: 32rem;
-      width: var(--_sizeX);
-      height: var(--_sizeY);
-    }
+    display: flex;
+    width: var(--_base-image-size);
+    height: var(--_base-image-size);
+    aspect-ratio: 1;
+    margin-inline: calc(-50vw + 50%); // take the element outside its container.
+    margin-block-end: var(--_margin);
+    position: relative;
 
     .topImage,
     .bottomImage {
-      position: relative;
       border-radius: 1.56rem;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     .topImage {
-      grid-area: imagesStack;
-      z-index: 0;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1;
+      position: relative;
+      left: calc(var(--_image-reposition));
     }
     .bottomImage {
-      grid-area: imagesStack;
-      z-index: 1;
-      top: 15%;
-      left: -40%;
+      width: 40%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      bottom: calc(var(--_margin) * -1 + 2rem);
+    }
+  }
+}
+
+@include breakpoint(550px) {
+  .about {
+  padding-block-end: var(--gap-1);
+
+    &__restaurantImages {
+      --_base-image-size: 25rem;
+      --_image-reposition: 3rem;
+      overflow: unset;
+      margin-inline: auto;
+      .topImage {
+        right: calc(var(--_image-reposition));
+      }
+      .bottomImage {
+        width: 50%;
+        left: calc(var(--_image-reposition) * -1);
+      }
     }
   }
 }
@@ -76,12 +91,18 @@
 @include lg {
   .about {
     flex-direction: row;
-    gap: var(--gap-6);
+    &__restaurantImages {
+      --_base-image-size: clamp(25rem, 12.07vi + 17.52rem, 32rem);
+      --_image-reposition: 6rem;
+      margin-inline-end: calc(var(--_margin) + var(--_image-reposition));
+      margin-inline-start: calc(var(--p-container) * -1);
 
-    &::after {
-      width: 28.75rem;
-      height: 3.45rem;
-      bottom: 10rem;
+      .topImage {
+        right: calc(var(--_image-reposition));
+      }
+      .bottomImage {
+        left: 0;
+      }
     }
   }
 }
