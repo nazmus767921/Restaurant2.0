@@ -17,24 +17,26 @@ const ContactPage = () => {
     <>
       <Nav slot={<Banner />} />
       <section className={$_("contactPage")}>
-        <SectionHeader
-          title={
-            <h4 className={$_("contactPage__title")}>
-              We&apos;d Love to Hear From You,
-              <br />
-              <span
-                className={$_(
-                  "contactPage__title contactPage__title--span @isBrand"
-                )}
-              >
-                Please Let Us Know
-              </span>
-            </h4>
-          }
-          subHeading="Whether you have questions, feedback, or want to make a reservation, our
+        <div className={$_("contactPage__sectionHeader @container")}>
+          <SectionHeader
+            title={
+              <h4 className={$_("contactPage__title")}>
+                We&apos;d Love to Hear From You,
+                <br />
+                <span
+                  className={$_(
+                    "contactPage__title contactPage__title--span @isBrand"
+                  )}
+                >
+                  Please Let Us Know
+                </span>
+              </h4>
+            }
+            subHeading="Whether you have questions, feedback, or want to make a reservation, our
           team is here to assist you. Reach out via the form below, and we'll get
           back to you promptly."
-        />
+          />
+        </div>
         <div className={$_("contactPage__formSection @container")}>
           <Form />
           <OutlinedAddressCard />
