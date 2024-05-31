@@ -47,6 +47,41 @@ const foodData: FoodData[] = [
     description: "Best meat you can get between your teeths.",
     price: 29.99,
   },
+  {
+    id: nanoid(),
+    image: "sahi_kebab2.png",
+    name: "Shahi Kebab",
+    description: "Best meat you can get between your teeths.",
+    price: 29.99,
+  },
+  {
+    id: nanoid(),
+    image: "sahi_kebab2.png",
+    name: "Shahi Kebab",
+    description: "Best meat you can get between your teeths.",
+    price: 29.99,
+  },
+  {
+    id: nanoid(),
+    image: "sahi_kebab2.png",
+    name: "Shahi Kebab",
+    description: "Best meat you can get between your teeths.",
+    price: 29.99,
+  },
+  {
+    id: nanoid(),
+    image: "sahi_kebab2.png",
+    name: "Shahi Kebab",
+    description: "Best meat you can get between your teeths.",
+    price: 29.99,
+  },
+  {
+    id: nanoid(),
+    image: "sahi_kebab2.png",
+    name: "Shahi Kebab",
+    description: "Best meat you can get between your teeths.",
+    price: 29.99,
+  },
 ];
 
 const FeaturedMenu = () => {

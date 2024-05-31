@@ -73,6 +73,10 @@
       padding-block-start: var(--gap-3);
       padding-block-end: var(--gap-7);
       padding-inline: var(--p-container);
+
+      & > * {
+       max-width: 14rem;
+      }
     }
 
     &::before {
