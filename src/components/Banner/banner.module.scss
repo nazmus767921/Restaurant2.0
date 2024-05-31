@@ -3,23 +3,29 @@
 .banner {
   --_columns: 1;
   --_columnSize: auto;
-  display: grid;
+  display: none;
+  visibility: hidden;
   grid-template-columns: repeat(var(--_columns), var(--_columnSize));
   padding-block: var(--gap-2);
+  min-width: max-content;
   gap: var(--gap-2);
+
   place-items: center;
   place-content: center;
 }
 
 @include md {
   .banner {
-    --_columns: 2;
+    display: grid;
+
+    --_columns: 3;
+    gap: var(--gap-4);
   }
 }
 
 @include lg {
   .banner {
     --_columns: 3;
-    gap: var(--gap-4);
+    gap: var(--gap-5);
   }
 }
