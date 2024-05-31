@@ -1,13 +1,20 @@
+import { utilizeModuleClasses } from "easy-css-modules";
 import { ReactNode } from "react";
 import styles from "./label.module.scss";
-import  { utilizeModuleClasses } from "easy-css-modules";
 
 const $_ = utilizeModuleClasses(styles);
 
-const Label = ({htmlFor, isRequired, children}: {
+const Label = ({
+  htmlFor,
+  isRequired,
+  children,
+  color = "var(--accent)",
+}: {
   htmlFor?: string | undefined;
   isRequired?: boolean | undefined;
   children: ReactNode;
+  color?: string;
+  size?: string;
 }) => {
   return (
     <>
@@ -16,7 +23,7 @@ const Label = ({htmlFor, isRequired, children}: {
         style={{
           fontFamily: "var(--ff-heading)",
           fontSize: "var(--fs-h5)",
-          color: "var(--accent)",
+          color: color,
           textTransform: "capitalize",
         }}
         className={$_(`label ${isRequired ? "isRequired" : ""}`)}
@@ -25,6 +32,6 @@ const Label = ({htmlFor, isRequired, children}: {
       </label>
     </>
   );
-}
+};
 
 export default Label;
