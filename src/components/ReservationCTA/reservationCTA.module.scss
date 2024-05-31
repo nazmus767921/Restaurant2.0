@@ -1,9 +1,13 @@
+@import "../../styles/breakpoints";
+
 .reservationCta {
   display: flex;
   flex-direction: column;
   gap: var(--gap-2);
   justify-content: center;
   align-items: center;
+  min-height: unset;
+  padding-block: var(--gap-6);
 
   background-image: url("/src/assets/images/cta-bg.png");
   background-position: center;
@@ -63,5 +67,14 @@
     opacity: 0.7;
     letter-spacing: 0.5px;
     color: var(--accent);
+  }
+}
+
+@include lg {
+  .reservationCta {
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: 100svh;
+    padding-block: var(--gap-6);
   }
 }
