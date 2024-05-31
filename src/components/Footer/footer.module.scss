@@ -81,11 +81,17 @@
 
 @include md {
   .footer {
-    --_columns: 1.25fr 0.5fr 1.5fr;
+    --_columns: 1fr 1fr;
+    row-gap: var(--_py);
+
+    &__brand {
+      grid-column: span 2;
+    }
 
     &__links {
       border-block: none;
-      border-inline: var(--_border);
+      width: 100%;
+      border-inline-end: var(--_border);
     }
     &__otherInfo {
       .copyright {
@@ -96,6 +102,17 @@
 }
 @include lg {
   .footer {
+    --_columns: 1.25fr 0.5fr 1.5fr;
     --_py: var(--gap-6);
+    row-gap: unset;
+
+    &__brand {
+      grid-column: unset;
+    }
+
+    &__links {
+      width: unset;
+      border-inline: var(--_border);
+    }
   }
 }
