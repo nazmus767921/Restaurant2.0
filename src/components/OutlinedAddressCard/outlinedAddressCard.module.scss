@@ -9,6 +9,7 @@
   max-width: 22rem;
 
   height: max-content;
+  height: -moz-fit-content;
   height: fit-content;
 
   &__textContent {
