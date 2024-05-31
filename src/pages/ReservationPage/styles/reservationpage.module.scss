@@ -1,3 +1,5 @@
+@import "../../../styles/breakpoints";
+
 .reservationPage {
   display: flex;
   flex-direction: column;
@@ -21,20 +23,41 @@
   }
 
   &__form {
+    --_columns: 1;
+    --_columnSize: 1fr;
     width: clamp(300px, 100%, 102.5rem);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(var(--_columns), var(--_columnSize));
     justify-items: center;
     align-items: center;
     gap: var(--gap-5);
-    margin-block: var(--gap-6);
+    margin-block: var(--gap-5);
 
-    .span2 {
-      grid-column: span 2;
+    &__placeholder {
+      -webkit-user-select: none;
+      user-select: none;
+      display: none;
     }
 
     &__specialRequest {
       width: 100%;
+    }
+  }
+}
+
+@include md {
+  .reservationPage {
+    &__form {
+      --_columns: 2;
+      margin-block: var(--gap-6);
+
+      &__placeholder {
+        display: initial;
+      }
+      &__specialRequest,
+      &__submitWrapper {
+        grid-column: span 2;
+      }
     }
   }
 }

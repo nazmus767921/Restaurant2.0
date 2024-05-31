@@ -51,10 +51,12 @@ const ReservationPage = () => {
     <>
       <Nav slot={<Banner />} />
       <section className={$_("reservationPage")}>
-        <SectionHeader
-          title={<HeaderContent />}
-          subHeading="Indulge in Culinary Delights: Secure Your Dining Experience Today!"
-        />
+        <div className={$_("reservationPage__sectionHeader @container")}>
+          <SectionHeader
+            title={<HeaderContent />}
+            subHeading="Indulge in Culinary Delights: Secure Your Dining Experience Today!"
+          />
+        </div>
         <form className={$_("reservationPage__form @container")}>
           <InputField
             onChange={inputHandler}
@@ -64,7 +66,8 @@ const ReservationPage = () => {
             isRequired
             placeholder="Your name, Sir/ Madam?"
           />
-          <div style={{ userSelect: "none" }} /> {/* Required for the layout */}
+          <div className={$_("reservationPage__form__placeholder")} />
+          {/* Required for the layout */}
           <InputField
             onChange={inputHandler}
             value={formData?.email}
@@ -101,14 +104,14 @@ const ReservationPage = () => {
             label="Date and Time"
             description="When shall we reserve this exclusive experience for you? Select the date and time that best suits your culinary desires."
           />
-          <div className={$_("reservationPage__form__specialRequest span2")}>
+          <div className={$_("reservationPage__form__specialRequest")}>
             <TextField
               name="specialRequestMessage"
               label="Special Requests"
               placeholder="Any special requests?"
             />
           </div>
-          <div className={$_("@centerX span2")}>
+          <div className={$_("reservationPage__form__submitWrapper @centerX")}>
             <Button paddingInline={"3.75rem"} paddingBlock={".9rem"}>
               Reserve
             </Button>
