@@ -1,14 +1,14 @@
+@import "../../styles/breakpoints";
+
 .foodCard {
   display: flex;
   flex-direction: column;
   gap: var(--gap-4);
 
-  width: 100%;
-  max-width: 14.75rem;
   /* Auto layout */
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem;
+  padding: var(--gap-3);
   text-align: center;
 
   /* Inside Auto Layout */
@@ -19,6 +19,20 @@
   // appearance
   border-radius: 0.63rem;
   background: url(notebook-dark), rgba(11, 11, 13, 1);
+
+  /* VARIANT */
+  &.layout--default {
+    flex-direction: column;
+  }
+  &.layout--2 {
+    flex-direction: row;
+    gap: var(--gap-1);
+    padding: var(--gap-2);
+
+    .foodMenuText {
+      flex-basis: 230%;
+    }
+  }
 
   &__imageWrapper {
     display: flex;
@@ -39,9 +53,6 @@
     backdrop-filter: blur(0.54rem);
     background: url(notebook-dark), rgba(11, 11, 13, 0.4);
   }
-
-  box-shadow: rgba(67, 65, 36, 0.2) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .foodMenuText {

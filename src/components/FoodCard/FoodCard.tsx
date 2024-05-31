@@ -12,6 +12,7 @@ interface FoodMenuTextProps {
 export interface FoodCardProps extends FoodMenuTextProps {
   image: string;
   isBlur?: boolean;
+  variant?: 1 | 2;
 }
 
 const FoodCard = ({
@@ -20,9 +21,16 @@ const FoodCard = ({
   description,
   price,
   isBlur,
+  variant = 1,
 }: FoodCardProps) => {
   return (
-    <div className={$_(`foodCard ${isBlur ? "isBlur" : ""}`)}>
+    <div
+      className={$_(
+        `foodCard ${isBlur ? "isBlur" : ""} ${
+          variant === 1 ? "layout--default" : "layout--2"
+        }`
+      )}
+    >
       <div className={$_("foodCard__imageWrapper @img__wrapper")}>
         <img src={`/images/${image}`} alt={name} />
       </div>
