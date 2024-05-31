@@ -1,6 +1,12 @@
+@import "../../../styles/breakpoints";
+
 .foodMenuSection {
   display: grid;
   gap: var(--gap-3);
+  grid-template-columns: 1fr;
+  padding-block: var(--gap-7);
+  padding-block-start: var(--gap-5);
+
   /* Background */
   background-image: linear-gradient(
       180deg,
@@ -13,14 +19,28 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  grid-template-columns: minmax(auto, 22rem) 1fr;
-  padding-block: var(--gap-7);
-  padding-block-start: var(--gap-5);
-
   /* Children */
 
-  .sidebar {
+  &__filters {
+    --_gap: var(--gap-3);
+    --_columns: 1;
+
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: var(--_gap);
+
+    & > * {
+      // complex calculation but works; Just change the numbers of equal columns you want to be in a row in the `&__filters`
+      width: calc(
+        calc(100% - var(--_gap) * (calc(var(--_columns) - 1))) / var(--_columns)
+      );
+    }
+  }
+
+  .sidebar {
+    display: none;
     flex-direction: column;
     gap: var(--gap-3);
 
@@ -36,6 +56,7 @@
       font-family: var(--ff-heading);
       font-size: var(--fs-h5);
       opacity: 0.6;
+      text-align: start;
 
       &.isSelected {
         font-size: calc(var(--fs-h5) + 0.75rem);
@@ -62,16 +83,56 @@
     }
 
     &__viewSorter {
+      width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      gap: var(--gap-2);
       width: 100%;
       height: -moz-fit-content;
       height: fit-content;
+      padding-block-start: var(--gap-4);
+    }
+    &__categoryTitle {
+      text-align: center;
+      flex-basis: 100%;
+      font-size: 3rem;
+      line-height: normal;
     }
     &__pageStatusText {
       opacity: 0.6;
       color: var(--accent);
+    }
+  }
+}
+
+@include lg {
+  .foodMenuSection {
+    grid-template-columns: minmax(auto, 22rem) 1fr;
+
+    &__filters {
+      display: none;
+      visibility: hidden;
+    }
+
+    .sidebar {
+      display: flex;
+    }
+
+    .foodMenu {
+      &__viewSorter {
+        gap: unset;
+        flex-direction: row;
+        padding-block-start: unset;
+      }
+
+      &__categoryTitle {
+        text-align: start;
+        min-width: max-content;
+        flex-basis: fit-content;
+        line-height: var(--lh-base);
+      }
     }
   }
 }
